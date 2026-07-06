@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    stages {
+        
+        stage ('fench') {
+            steps{
+                git( 
+                    branch: 'main',
+                    url:'https://github.com/priyadharshanexe/java-docker.git'
+                )
+            }
+        }
+        stage ('docker') {
+            steps{
+                sh 'docker build -t navani .'
+            }
+        }
+        stage ('run container') {
+            steps{
+                sh 'docker run -p 8880:8880 --name web-doc navani'
+            }
+        }
+        
+    }
+}
