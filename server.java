@@ -9,7 +9,7 @@ public class server {
 
     public static void main(String[] args) throws IOException {
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(8880), 0);
 
         server.createContext("/", (HttpExchange exchange) -> {
             String response = """
@@ -34,6 +34,6 @@ public class server {
         });
 
         server.start();
-        System.out.println("Server started at http://localhost:8080");
+        System.out.println("Server started at http://localhost:8880");
     }
 }
